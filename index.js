@@ -36,22 +36,23 @@ const calculator = (() => {
 })();
 
 const caeser = (string, shift) => {
-	function shiftLogic(char) {
-		if (char >= 65 && char <= 90) {
-			if (char > 90) {
-				char = char - 90 + 64;
-			} else if (char < 65) {
-				char = 91 - (65 - char);
-			}
-		} else if (char >= 97 && char <= 122) {
-			if (char > 122) {
-				char = char - 122 + 96;
-			} else if (char < 97) {
-				char = 123 - (97 - char);
-			}
+	let newString = "";
+	for (let i = 0; i <= string.length - 1; i++) {
+		let charCode = string.charCodeAt(i);
+		if (charCode >= 65 && charCode <= 90) {
+			let cipher = charCode + (shift % 26);
+			let convert = String.fromCharCode(cipher);
+			newString += convert;
+		} else if (charCode >= 97 && charCode <= 122) {
+			let cipher = charCode + (shift % 26);
+			let convert = String.fromCharCode(cipher);
+			newString += convert;
+		} else {
+			newString + String.fromCharCode(charCode);
 		}
-		return char;
 	}
+
+	return newString;
 };
 
 const arrayOfObjs = (array) => {
@@ -68,3 +69,20 @@ const arrayOfObjs = (array) => {
 };
 
 export { capitalize, reverseString, calculator, caeser, arrayOfObjs };
+
+// function shiftLogic(char) {
+// 	if (char >= 65 && char <= 90) {
+// 		if (char > 90) {
+// 			char = char - 90 + 64;
+// 		} else if (char < 65) {
+// 			char = 91 - (65 - char);
+// 		}
+// 	} else if (char >= 97 && char <= 122) {
+// 		if (char > 122) {
+// 			char = char - 122 + 96;
+// 		} else if (char < 97) {
+// 			char = 123 - (97 - char);
+// 		}
+// 	}
+// 	return char;
+// }
