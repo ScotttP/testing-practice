@@ -39,11 +39,10 @@ const caeser = (string, shift) => {
 	let newString = "";
 	for (let i = 0; i <= string.length - 1; i++) {
 		let charCode = string.charCodeAt(i);
-		if (charCode >= 65 && charCode <= 90) {
-			let cipher = charCode + (shift % 26);
-			let convert = String.fromCharCode(cipher);
-			newString += convert;
-		} else if (charCode >= 97 && charCode <= 122) {
+		if (
+			(charCode >= 65 && charCode <= 90) ||
+			(charCode >= 97 && charCode <= 122)
+		) {
 			let cipher = charCode + (shift % 26);
 			let convert = String.fromCharCode(cipher);
 			newString += convert;
