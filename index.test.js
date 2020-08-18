@@ -40,10 +40,16 @@ test("contains the keys", () => {
 	);
 });
 
-test("caeser works", () => {
+test("lowercase caeser works", () => {
 	expect(index.caeser("abc", 1)).toBe("bcd");
-	// expect(index.caeser("ABC", 1)).toBe("BCD");
-	// expect(index.caeser("abc!", 1)).toBe("bcd!");
-	// expect(index.caeser("zab", 1)).toBe("abc");
-	// expect(index.caeser("ZAB", 1)).toBe("ABC");
+	expect(index.caeser("zab", 1)).toBe("abc");
+	expect(index.caeser("zbc", 5)).toBe("egh");
+	expect(index.caeser("abc!", 1)).toBe("bcd!");
+});
+
+test("uppercase caeser works", () => {
+	expect(index.caeser("ABC", 1)).toBe("BCD");
+	expect(index.caeser("ABC!", 1)).toBe("BCD!");
+	expect(index.caeser("ZAB", 1)).toBe("ABC");
+	expect(index.caeser("ZBC", 5)).toBe("EGH");
 });
